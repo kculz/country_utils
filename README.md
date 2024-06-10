@@ -25,15 +25,15 @@ const CountryUtil = require('@greycode/country_utils');
 const countryUtil = new CountryUtil();
 
 // Get a country's information using phone code (eg. +1)
-const country = countryUtil.usePhoneCode('+1');
+const country = countryUtil.getByPhoneCode('+1');
 console.log(country); // Output: { isValid: true, country: 'United States', countryCode: 'US', phoneCode: '+1' }
 
 // Get a country's information using country alpha-2 code (eg. US)
-const country = countryUtil.useCountryCode('US');
+const country = countryUtil.getByCountryCode('US');
 console.log(country); // Output: { isValid: true, country: 'United States', countryCode: 'US', phoneCode: '+1' }
 
-// Get a country's information using country alpha2 code (eg. US)
-const country = countryUtil.useCountry('United States');
+// Get a country's information using country name (eg. United States)
+const country = countryUtil.getByCountry('United States');
 console.log(country); // Output: { isValid: true, country: 'United States', countryCode: 'US', phoneCode: '+1' }
 
 // Get a list of all countries
@@ -44,11 +44,11 @@ console.log(allCountries);
 ## API
 The CountryUtil class provides the following methods:
 
-`usePhoneCode(phoneCode: string)`: Returns the country information for the given phone country code (eg +263).
+`getByPhoneCode(phoneCode: string)`: Returns the country information for the given phone country code (eg +263).
 
-`useCountryCode(isoCode: string)`: Returns the country information for the given ISO code (alpha-2 eg ZW).
+`getByCountryCode(isoCode: string)`: Returns the country information for the given ISO code (alpha-2 eg ZW).
 
-`useCountry(phoneCode: string)`: Looks up a country information by  country name (eg Zimbabwe). 
+`getByCountry(phoneCode: string)`: Looks up a country information by  country name (eg Zimbabwe). 
 
 `getAllCountries()`: Returns an array of all countries with their respective data.
 

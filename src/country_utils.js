@@ -17,7 +17,7 @@ class CountryUtil {
    *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
    *   - `phoneCode`: The phone code of the country.
    */
-  usePhoneCode(phoneCode) {
+  getByPhoneCode(phoneCode) {
     const country = this.countries.find(
       (c) => c.phoneCode === phoneCode
     );
@@ -44,7 +44,7 @@ class CountryUtil {
    *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
    *   - `phoneCode`: The phone code of the country.
    */
-  useCountryCode(countryCode) {
+  getByCountryCode(countryCode) {
     const country = this.countries.find(
       (c) => c.countryCode.toLowerCase() === countryCode.toLowerCase()
     );
@@ -71,7 +71,7 @@ class CountryUtil {
    *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
    *   - `phoneCode`: The phone code of the country.
    */
-  useCountry(country) {
+  getByCountry(country) {
     const countryData = this.countries.find(
       (c) => c.country.toLowerCase() === country.toLowerCase()
     );
