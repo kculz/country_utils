@@ -1,99 +1,127 @@
-// country-util.ts
-import countries from './data/countries.json';
+import africa from './data/africa.json';
+import asia from './data/asia.json';
+import europe from './data/europe.json';
+import northAmerica from './data/north_america.json';
+import southAmerica from './data/south_america.json';
+import oceania from './data/oceania.json';
+import antarctic from './data/antarctic.json';
+
+const countriesData = [
+  ...africa,
+  ...asia,
+  ...europe,
+  ...northAmerica,
+  ...southAmerica,
+  ...oceania,
+  ...antarctic
+];
+
+export interface Country {
+  country: string;
+  countryCode: string;
+  alpha3: string;
+  numeric: string;
+  phoneCode: string;
+  currency: string;
+  capital: string;
+  continent: string;
+  flag: string;
+}
+
+export interface LookupResult extends Partial<Country> {
+  isValid: boolean;
+}
+
+const countries: Country[] = countriesData as Country[];
+const phoneCodeMap = new Map<string, Country>();
+const countryCodeMap = new Map<string, Country>();
+const nameMap = new Map<string, Country>();
+const alpha3Map = new Map<string, Country>();
+
+countries.forEach(c => {
+  phoneCodeMap.set(c.phoneCode, c);
+  countryCodeMap.set(c.countryCode.toLowerCase(), c);
+  nameMap.set(c.country.toLowerCase(), c);
+  alpha3Map.set(c.alpha3.toLowerCase(), c);
+});
 
 /**
- * Utility class for working with country-related data.
+ * Finds a country by its phone code.
  */
-export class CountryUtil {
-  private countries: { country: string; countryCode: string; phoneCode: string }[];
-
-  constructor() {
-    this.countries = countries;
-  }
-
-  /**
-   * Finds a country by its phone code.
-   * @param {string} phoneCode - The phone code to search for (e.g., '+1', '+44').
-   * @returns {object} An object with the following properties:
-   *   - `isValid`: `true` if a country was found, `false` otherwise.
-   *   - `country`: The name of the country.
-   *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
-   *   - `phoneCode`: The phone code of the country.
-   */
-  getByPhoneCode(phoneCode: string): { isValid: boolean; country?: string; countryCode?: string; phoneCode?: string } {
-    const country = this.countries.find((c) => c.phoneCode === phoneCode);
-    if (country) {
-      return {
-        isValid: true,
-        country: country.country,
-        countryCode: country.countryCode,
-        phoneCode: country.phoneCode
-      };
-    } else {
-      return {
-        isValid: false
-      };
-    }
-  }
-
-  /**
-   * Finds a country by its ISO 3166-1 alpha-2 country code.
-   * @param {string} countryCode - The country code to search for (e.g., 'US', 'GB').
-   * @returns {object} An object with the following properties:
-   *   - `isValid`: `true` if a country was found, `false` otherwise.
-   *   - `country`: The name of the country.
-   *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
-   *   - `phoneCode`: The phone code of the country.
-   */
-  getByCountryCode(countryCode: string): { isValid: boolean; country?: string; countryCode?: string; phoneCode?: string } {
-    const country = this.countries.find((c) => c.countryCode.toLowerCase() === countryCode.toLowerCase());
-    if (country) {
-      return {
-        isValid: true,
-        country: country.country,
-        countryCode: country.countryCode,
-        phoneCode: country.phoneCode
-      };
-    } else {
-      return {
-        isValid: false
-      };
-    }
-  }
-
-  /**
-   * Finds a country by its name.
-   * @param {string} country - The name of the country to search for.
-   * @returns {object} An object with the following properties:
-   *   - `isValid`: `true` if a country was found, `false` otherwise.
-   *   - `country`: The name of the country.
-   *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
-   *   - `phoneCode`: The phone code of the country.
-   */
-  getByCountry(country: string): { isValid: boolean; country?: string; countryCode?: string; phoneCode?: string } {
-    const countryData = this.countries.find((c) => c.country.toLowerCase() === country.toLowerCase());
-    if (countryData) {
-      return {
-        isValid: true,
-        country: countryData.country,
-        countryCode: countryData.countryCode,
-        phoneCode: countryData.phoneCode
-      };
-    } else {
-      return {
-        isValid: false
-      };
-    }
-  }
-
-  /**
-   * Returns the list of all countries.
-   * @returns {object[]} An array of country objects, each with the following properties:
-   *   - `country`: The name of the country.
-   *   - `countryCode`: The ISO 3166-1 alpha-2 country code.
-   *   - `phoneCode`: The phone code of the country.
-   */
-  getAllCountries(): { country: string; countryCode: string; phoneCode: string }[] {
-    return this.countries;
-  }
+export function getByPhoneCode(phoneCode: string): LookupResult {
+  const country = phoneCodeMap.get(phoneCode);
+  return country ? { isValid: true, ...country } : { isValid: false };
 }
+
+/**
+ * Finds a country by its ISO 3166-1 alpha-2 country code.
+ */
+export function getByCountryCode(countryCode: string): LookupResult {
+  const country = countryCodeMap.get(countryCode.toLowerCase());
+  return country ? { isValid: true, ...country } : { isValid: false };
+}
+
+/**
+ * Finds a country by its name.
+ */
+export function getByCountry(country: string): LookupResult {
+  const countryData = nameMap.get(country.toLowerCase());
+  return countryData ? { isValid: true, ...countryData } : { isValid: false };
+}
+
+/**
+ * Finds a country by its ISO 3166-1 alpha-3 code.
+ */
+export function getByAlpha3(alpha3: string): LookupResult {
+  const country = alpha3Map.get(alpha3.toLowerCase());
+  return country ? { isValid: true, ...country } : { isValid: false };
+}
+
+/**
+ * Returns the list of all countries.
+ */
+export function getAllCountries(): Country[] {
+  return countries;
+}
+
+/**
+ * Returns countries filtered by continent.
+ */
+export function getByContinent(continent: string): Country[] {
+  return countries.filter(c => c.continent.toLowerCase() === continent.toLowerCase());
+}
+
+/**
+ * Returns the total number of countries.
+ */
+export function getCountryCount(): number {
+  return countries.length;
+}
+
+/**
+ * Returns a unique list of all continents.
+ */
+export function getContinents(): string[] {
+  return [...new Set(countries.map(c => c.continent))].sort();
+}
+
+/**
+ * Returns the number of countries in a specific continent.
+ */
+export function getCountryCountByContinent(continent: string): number {
+  return getByContinent(continent).length;
+}
+
+// Maintaining backward compatibility via a class-wrapped object if needed, 
+// but preferring direct exports.
+export const CountryUtil = {
+  getByPhoneCode,
+  getByCountryCode,
+  getByCountry,
+  getByAlpha3,
+  getAllCountries,
+  getByContinent,
+  getCountryCount,
+  getContinents,
+  getCountryCountByContinent
+};

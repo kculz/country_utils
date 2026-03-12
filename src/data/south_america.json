@@ -1,0 +1,156 @@
+[
+  {
+    "country": "Argentina",
+    "countryCode": "AR",
+    "alpha3": "ARG",
+    "numeric": "032",
+    "phoneCode": "+54",
+    "currency": "ARS",
+    "capital": "Buenos Aires",
+    "continent": "South America",
+    "flag": "🇦🇷"
+  },
+  {
+    "country": "Bolivia",
+    "countryCode": "BO",
+    "alpha3": "BOL",
+    "numeric": "068",
+    "phoneCode": "+591",
+    "currency": "BOB",
+    "capital": "Sucre",
+    "continent": "South America",
+    "flag": "🇧🇴"
+  },
+  {
+    "country": "Brazil",
+    "countryCode": "BR",
+    "alpha3": "BRA",
+    "numeric": "076",
+    "phoneCode": "+55",
+    "currency": "BRL",
+    "capital": "Brasília",
+    "continent": "South America",
+    "flag": "🇧🇷"
+  },
+  {
+    "country": "Chile",
+    "countryCode": "CL",
+    "alpha3": "CHL",
+    "numeric": "152",
+    "phoneCode": "+56",
+    "currency": "CLP",
+    "capital": "Santiago",
+    "continent": "South America",
+    "flag": "🇨🇱"
+  },
+  {
+    "country": "Colombia",
+    "countryCode": "CO",
+    "alpha3": "COL",
+    "numeric": "170",
+    "phoneCode": "+57",
+    "currency": "COP",
+    "capital": "Bogotá",
+    "continent": "South America",
+    "flag": "🇨🇴"
+  },
+  {
+    "country": "Ecuador",
+    "countryCode": "EC",
+    "alpha3": "ECU",
+    "numeric": "218",
+    "phoneCode": "+593",
+    "currency": "USD",
+    "capital": "Quito",
+    "continent": "South America",
+    "flag": "🇪🇨"
+  },
+  {
+    "country": "Falkland Islands",
+    "countryCode": "FK",
+    "alpha3": "FLK",
+    "numeric": "238",
+    "phoneCode": "+500",
+    "currency": "FKP",
+    "capital": "Stanley",
+    "continent": "South America",
+    "flag": "🇫🇰"
+  },
+  {
+    "country": "French Guiana",
+    "countryCode": "GF",
+    "alpha3": "GUF",
+    "numeric": "254",
+    "phoneCode": "+594",
+    "currency": "EUR",
+    "capital": "Cayenne",
+    "continent": "South America",
+    "flag": "🇬🇫"
+  },
+  {
+    "country": "Guyana",
+    "countryCode": "GY",
+    "alpha3": "GUY",
+    "numeric": "328",
+    "phoneCode": "+592",
+    "currency": "GYD",
+    "capital": "Georgetown",
+    "continent": "South America",
+    "flag": "🇬🇾"
+  },
+  {
+    "country": "Paraguay",
+    "countryCode": "PY",
+    "alpha3": "PRY",
+    "numeric": "600",
+    "phoneCode": "+595",
+    "currency": "PYG",
+    "capital": "Asunción",
+    "continent": "South America",
+    "flag": "🇵🇾"
+  },
+  {
+    "country": "Peru",
+    "countryCode": "PE",
+    "alpha3": "PER",
+    "numeric": "604",
+    "phoneCode": "+51",
+    "currency": "PEN",
+    "capital": "Lima",
+    "continent": "South America",
+    "flag": "🇵🇪"
+  },
+  {
+    "country": "Suriname",
+    "countryCode": "SR",
+    "alpha3": "SUR",
+    "numeric": "740",
+    "phoneCode": "+597",
+    "currency": "SRD",
+    "capital": "Paramaribo",
+    "continent": "South America",
+    "flag": "🇸🇷"
+  },
+  {
+    "country": "Uruguay",
+    "countryCode": "UY",
+    "alpha3": "URY",
+    "numeric": "858",
+    "phoneCode": "+598",
+    "currency": "UYU",
+    "capital": "Montevideo",
+    "continent": "South America",
+    "flag": "🇺🇾"
+  },
+  {
+    "country": "Venezuela",
+    "countryCode": "VE",
+    "alpha3": "VEN",
+    "numeric": "862",
+    "phoneCode": "+58",
+    "currency": "VES",
+    "capital": "Caracas",
+    "continent": "South America",
+    "flag": "🇻🇪"
+  }
+]

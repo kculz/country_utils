@@ -1,22 +1,27 @@
 {
   "name": "@greycode/country_utils",
-  "version": "0.0.4",
-  "description": "A utility class for working with country data, including country codes, phone country codes, and more. This package provides a convenient way to access and work with country-related information in your JavaScript projects.",
+  "version": "1.0.0",
+  "description": "A high-performance utility for working with country data, including ISO codes, phone codes, flags, currencies, and more.",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.cjs",
-      "import": "./index.mjs",
-      "types": "./index.d.ts"
+      "types": "./dist/country_utils.d.ts",
+      "import": "./dist/country_utils.js",
+      "require": "./dist/country_utils.cjs"
     }
   },
-  "main": "index.cjs",
-  "module": "index.mjs",
-  "types": "index.d.ts",
+  "main": "./dist/country_utils.cjs",
+  "module": "./dist/country_utils.js",
+  "types": "./dist/country_utils.d.ts",
   "files": [
-    "src/dist/**/*"
+    "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -25,13 +30,14 @@
   "keywords": [
     "countries",
     "country",
+    "iso-3166",
     "alpha-2",
     "alpha-3",
-    "ISO code",
-    "numeric code",
-    "phone code",
-    "nodejs",
-    "express"
+    "phone-code",
+    "currency",
+    "flag-emoji",
+    "utility",
+    "typescript"
   ],
   "author": "Kudzai Munyama",
   "license": "MIT",
@@ -40,6 +46,43 @@
   },
   "homepage": "https://github.com/kculz/country_utils#readme",
   "devDependencies": {
-    "typescript": "^5.4.5"
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "semantic-release": "^23.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.5",
+    "vitest": "^4.1.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

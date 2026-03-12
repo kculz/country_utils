@@ -1,0 +1,51 @@
+[
+  {
+    "country": "Antarctica",
+    "countryCode": "AQ",
+    "alpha3": "ATA",
+    "numeric": "010",
+    "phoneCode": "",
+    "continent": "Antarctic",
+    "flag": "🇦🇶"
+  },
+  {
+    "country": "Bouvet Island",
+    "countryCode": "BV",
+    "alpha3": "BVT",
+    "numeric": "074",
+    "phoneCode": "+47",
+    "continent": "Antarctic",
+    "flag": "🇧🇻"
+  },
+  {
+    "country": "French Southern and Antarctic Lands",
+    "countryCode": "TF",
+    "alpha3": "ATF",
+    "numeric": "260",
+    "phoneCode": "+262",
+    "currency": "EUR",
+    "capital": "Port-aux-Français",
+    "continent": "Antarctic",
+    "flag": "🇹🇫"
+  },
+  {
+    "country": "Heard Island and McDonald Islands",
+    "countryCode": "HM",
+    "alpha3": "HMD",
+    "numeric": "334",
+    "phoneCode": "",
+    "continent": "Antarctic",
+    "flag": "🇭🇲"
+  },
+  {
+    "country": "South Georgia",
+    "countryCode": "GS",
+    "alpha3": "SGS",
+    "numeric": "239",
+    "phoneCode": "+500",
+    "currency": "SHP",
+    "capital": "King Edward Point",
+    "continent": "Antarctic",
+    "flag": "🇬🇸"
+  }
+]
